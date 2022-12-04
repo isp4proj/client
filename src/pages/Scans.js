@@ -81,7 +81,7 @@ export default function Scans() {
 
   const getscans = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/results");
+      const response = await axios.get("http://54.238.175.157:5000/results");
       console.log(response.data);
 
       let docs = [];
@@ -100,7 +100,7 @@ export default function Scans() {
 
   const deleteScan = async (id) => {
     try {
-      await axios.get(`http://localhost:5000/delete?id=${id}`);
+      await axios.get(`http://54.238.175.157:5000/delete?id=${id}`);
       await getscans();
     } catch (error) {
       console.log(error);

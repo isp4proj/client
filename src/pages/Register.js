@@ -74,7 +74,7 @@ export default function Login(props) {
         confirmPassword: d.confirmPassword,
       };
 
-      const response = await axios.post("http://localhost:5000/register", {
+      const response = await axios.post("http://54.238.175.157:5000/register", {
         data,
       });
 

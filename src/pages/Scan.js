@@ -89,7 +89,7 @@ export default function Scan() {
 
   const gethostscan = async () => {
     axios
-      .get(`http://localhost:5000/result?id=${id}`)
+      .get(`http://54.238.175.157:5000/result?id=${id}`)
       .then((response) => {
         console.log(response.data);
 
