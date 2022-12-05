@@ -89,7 +89,7 @@ export default function Scan() {
 
   const gethostscan = async () => {
     axios
-      .get(`http://54.238.175.157:5000/result?id=${id}`)
+      .get(`https://54.238.175.157:5000/result?id=${id}`)
       .then((response) => {
         console.log(response.data);
 
