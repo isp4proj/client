@@ -74,9 +74,12 @@ export default function Login(props) {
         confirmPassword: d.confirmPassword,
       };
 
-      const response = await axios.post("http://54.238.175.157:5000/register", {
-        data,
-      });
+      const response = await axios.post(
+        "https://54.238.175.157:5000/register",
+        {
+          data,
+        }
+      );
 
       setSuccess(response?.data?.message);
       setError(null);
