@@ -47,7 +47,7 @@ export default function Bar(props) {
         width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250,
         backgroundColor: '#000',
         color: '#fff',
-        height: '100vh',
+        height: '85vh',
         paddingTop: '100px',
       }}
       role="presentation"
@@ -74,7 +74,7 @@ export default function Bar(props) {
             style={{
               // height: '40px',
               width: '80%',
-              marginTop: '300px',
+              marginTop: '200px',
               marginLeft: 'auto',
               marginRight: 'auto',
             }}
