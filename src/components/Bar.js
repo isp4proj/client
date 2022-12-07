@@ -26,7 +26,7 @@ export default function Bar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <b>Docker Security Framework v1.0</b>
+            <b>DockSec V1.0</b>
           </Typography>
 
           <NavLink
