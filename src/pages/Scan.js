@@ -131,310 +131,325 @@ export default function Scan() {
       ) : (
         <>
           <Bar />
-          <Container
-            maxWidth="lg"
-            style={{
-              marginBottom: "50px",
-              padding: "24px",
-              borderRadius: "8px",
-            }}
-          >
-            <Grid
-              container
-              direction="row"
-              alignItems="start"
+          <div style={{
+            position: "absolute",
+            zIndex: "-100",
+            width: "100%",
+            left: "0",
+            top: "0px",
+            backgroundColor: "#f1f5f9",
+            // height: 'calc(100% - 50px)',
+            height: '100%',
+            objectFit: "cover",
+            // padding: "24px",
+            marginTop: "24px",
+            // opacity: "0.5",
+          }}>
+            <Container
+              maxWidth="lg"
               style={{
-                textAlign: "left",
+                marginBottom: "50px",
+                padding: "24px",
+                borderRadius: "8px",
               }}
             >
-              <Grid item md={12} xs={12} sm={12}>
-                <Typography
-                  variant="h4"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "24px", marginTop: "24px" }}
-                >
-                  <b>Scan Result</b>
-                </Typography>
-              </Grid>
-
-              <Grid item md={12} xs={12} sm={12}>
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "12px", marginTop: "24px" }}
-                >
-                  <b>Scan ID</b> : {id}
-                </Typography>
-              </Grid>
-
-              <Grid item md={12} xs={12} sm={12}>
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "12px" }}
-                >
-                  <b>Public IP</b> : {hostscan?.information?.ip}
-                </Typography>
-              </Grid>
-
-              <Grid item md={12} xs={12} sm={12}>
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "12px", whiteSpace: "pre" }}
-                >
-                  <b>Host Information</b> : <br />
-                  <br />
-                  {hostscan?.information?.info}
-                </Typography>
-              </Grid>
-
-              <Grid item md={12} xs={12} sm={12}>
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "12px" }}
-                >
-                  <b>CIS Benchmark score</b> : {hostscan?.bench.toFixed(2)} %
-                </Typography>
-              </Grid>
-
-              <Grid item md={12} xs={12} sm={12}>
-                <Typography
-                  variant="h6"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "24px", marginTop: "24px" }}
-                >
-                  <b>Failed Items</b>
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "24px" }}
-                >
-                  <b>Action: </b>
-                  <span
-                    style={{
-                      backgroundColor: "red",
-                      padding: "8px",
-                      color: "white",
-                    }}
-                  >
-                    Immediete
-                  </span>
-                </Typography>
-              </Grid>
-
-              {hostscan && hostscan.warn.length > 0 ? (
+              <Grid
+                container
+                direction="row"
+                alignItems="start"
+                style={{
+                  textAlign: "left",
+                }}
+              >
                 <Grid item md={12} xs={12} sm={12}>
-                  <TableContainer component={Paper}>
-                    <Table className={classes.table} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell align="left">
-                            <b>ID</b>
-                          </TableCell>
-                          <TableCell>
-                            <b>Description</b>
-                          </TableCell>
+                  <Typography
+                    variant="h4"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "24px", marginTop: "24px" }}
+                  >
+                    <b>Scan Result</b>
+                  </Typography>
+                </Grid>
 
-                          <TableCell>
-                            <b>Remediation</b>
-                          </TableCell>
+                <Grid item md={12} xs={12} sm={12}>
+                  <Typography
+                    variant="body1"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "12px", marginTop: "24px" }}
+                  >
+                    <b>Scan ID</b> : {id}
+                  </Typography>
+                </Grid>
 
-                          <TableCell></TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {hostscan.warn.map((scan) => (
-                          <TableRow key={scan.scan_id}>
-                            <TableCell align="left">{scan.id}</TableCell>
-                            <TableCell align="left">{scan.desc}</TableCell>
+                <Grid item md={12} xs={12} sm={12}>
+                  <Typography
+                    variant="body1"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "12px" }}
+                  >
+                    <b>Public IP</b> : {hostscan?.information?.ip}
+                  </Typography>
+                </Grid>
+
+                <Grid item md={12} xs={12} sm={12}>
+                  <Typography
+                    variant="body1"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "12px", whiteSpace: "pre" }}
+                  >
+                    <b>Host Information</b> : <br />
+                    <br />
+                    {hostscan?.information?.info}
+                  </Typography>
+                </Grid>
+
+                <Grid item md={12} xs={12} sm={12}>
+                  <Typography
+                    variant="body1"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "12px" }}
+                  >
+                    <b>CIS Benchmark score</b> : {hostscan?.bench.toFixed(2)} %
+                  </Typography>
+                </Grid>
+
+                <Grid item md={12} xs={12} sm={12}>
+                  <Typography
+                    variant="h6"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "24px", marginTop: "24px" }}
+                  >
+                    <b>Failed Items</b>
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "24px" }}
+                  >
+                    <b>Action: </b>
+                    <span
+                      style={{
+                        backgroundColor: "red",
+                        padding: "8px",
+                        color: "white",
+                      }}
+                    >
+                      Immediete
+                    </span>
+                  </Typography>
+                </Grid>
+
+                {hostscan && hostscan.warn.length > 0 ? (
+                  <Grid item md={12} xs={12} sm={12}>
+                    <TableContainer component={Paper}>
+                      <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                          <TableRow>
                             <TableCell align="left">
-                              {scan.remediation}
+                              <b>ID</b>
+                            </TableCell>
+                            <TableCell>
+                              <b>Description</b>
                             </TableCell>
 
-                            <TableCell align="left"></TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </Grid>
-              ) : (
-                <Grid item md={12} xs={12} sm={12}>
-                  <Typography variant="body1" color="initial">
-                    No Data Available
-                  </Typography>
-                </Grid>
-              )}
-            </Grid>
-
-            <Grid
-              container
-              direction="row"
-              alignItems="start"
-              style={{
-                textAlign: "left",
-              }}
-            >
-              <Grid item md={12} xs={12} sm={12}>
-                <Typography
-                  variant="h6"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "24px", marginTop: "24px" }}
-                >
-                  <b>Informational Items</b>
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "24px" }}
-                >
-                  <b>Action: </b>
-                  <span
-                    style={{
-                      backgroundColor: "orange",
-                      padding: "8px",
-                      color: "white",
-                    }}
-                  >
-                    Normal
-                  </span>
-                </Typography>
-              </Grid>
-
-              {hostscan && hostscan.info.length > 0 ? (
-                <Grid item md={12} xs={12} sm={12}>
-                  <TableContainer component={Paper}>
-                    <Table className={classes.table} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell align="left">
-                            <b>ID</b>
-                          </TableCell>
-                          <TableCell>
-                            <b>Description</b>
-                          </TableCell>
-
-                          <TableCell>
-                            <b>Remediation</b>
-                          </TableCell>
-
-                          <TableCell></TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {hostscan.info.map((scan) => (
-                          <TableRow key={scan.scan_id}>
-                            <TableCell align="left">{scan.id}</TableCell>
-                            <TableCell align="left">{scan.desc}</TableCell>
-                            <TableCell align="left">
-                              {scan.remediation}
+                            <TableCell>
+                              <b>Remediation</b>
                             </TableCell>
 
-                            <TableCell align="left"></TableCell>
+                            <TableCell></TableCell>
                           </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </Grid>
-              ) : (
-                <Grid item md={12} xs={12} sm={12}>
-                  <Typography variant="body1" color="initial">
-                    No Data Available
-                  </Typography>
-                </Grid>
-              )}
-            </Grid>
+                        </TableHead>
+                        <TableBody>
+                          {hostscan.warn.map((scan) => (
+                            <TableRow key={scan.scan_id}>
+                              <TableCell align="left">{scan.id}</TableCell>
+                              <TableCell align="left">{scan.desc}</TableCell>
+                              <TableCell align="left">
+                                {scan.remediation}
+                              </TableCell>
 
-            <Grid
-              container
-              direction="row"
-              alignItems="start"
-              style={{
-                textAlign: "left",
-              }}
-            >
-              <Grid item md={12} xs={12} sm={12}>
-                <Typography
-                  variant="h6"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "24px", marginTop: "24px" }}
-                >
-                  <b>Passed Items</b>
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color="initial"
-                  align="left"
-                  style={{ marginBottom: "24px" }}
-                >
-                  <b>Action: </b>
-                  <span
-                    style={{
-                      backgroundColor: "green",
-                      padding: "8px",
-                      color: "white",
-                    }}
-                  >
-                    None
-                  </span>
-                </Typography>
+                              <TableCell align="left"></TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </Grid>
+                ) : (
+                  <Grid item md={12} xs={12} sm={12}>
+                    <Typography variant="body1" color="initial">
+                      No Data Available
+                    </Typography>
+                  </Grid>
+                )}
               </Grid>
 
-              {hostscan && hostscan.pass.length > 0 ? (
+              <Grid
+                container
+                direction="row"
+                alignItems="start"
+                style={{
+                  textAlign: "left",
+                }}
+              >
                 <Grid item md={12} xs={12} sm={12}>
-                  <TableContainer component={Paper}>
-                    <Table className={classes.table} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell align="left">
-                            <b>ID</b>
-                          </TableCell>
-                          <TableCell>
-                            <b>Description</b>
-                          </TableCell>
+                  <Typography
+                    variant="h6"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "24px", marginTop: "24px" }}
+                  >
+                    <b>Informational Items</b>
+                  </Typography>
 
-                          <TableCell></TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {hostscan.pass.map((scan) => (
-                          <TableRow key={scan.scan_id}>
-                            <TableCell align="left">{scan.id}</TableCell>
-                            <TableCell align="left">{scan.desc}</TableCell>
-
-                            <TableCell align="left"></TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </Grid>
-              ) : (
-                <Grid item md={12} xs={12} sm={12}>
-                  <Typography variant="body1" color="initial">
-                    No Data Available
+                  <Typography
+                    variant="body1"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "24px" }}
+                  >
+                    <b>Action: </b>
+                    <span
+                      style={{
+                        backgroundColor: "orange",
+                        padding: "8px",
+                        color: "white",
+                      }}
+                    >
+                      Normal
+                    </span>
                   </Typography>
                 </Grid>
-              )}
-            </Grid>
-          </Container>
+
+                {hostscan && hostscan.info.length > 0 ? (
+                  <Grid item md={12} xs={12} sm={12}>
+                    <TableContainer component={Paper}>
+                      <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                          <TableRow>
+                            <TableCell align="left">
+                              <b>ID</b>
+                            </TableCell>
+                            <TableCell>
+                              <b>Description</b>
+                            </TableCell>
+
+                            <TableCell>
+                              <b>Remediation</b>
+                            </TableCell>
+
+                            <TableCell></TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {hostscan.info.map((scan) => (
+                            <TableRow key={scan.scan_id}>
+                              <TableCell align="left">{scan.id}</TableCell>
+                              <TableCell align="left">{scan.desc}</TableCell>
+                              <TableCell align="left">
+                                {scan.remediation}
+                              </TableCell>
+
+                              <TableCell align="left"></TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </Grid>
+                ) : (
+                  <Grid item md={12} xs={12} sm={12}>
+                    <Typography variant="body1" color="initial">
+                      No Data Available
+                    </Typography>
+                  </Grid>
+                )}
+              </Grid>
+
+              <Grid
+                container
+                direction="row"
+                alignItems="start"
+                style={{
+                  textAlign: "left",
+                }}
+              >
+                <Grid item md={12} xs={12} sm={12}>
+                  <Typography
+                    variant="h6"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "24px", marginTop: "24px" }}
+                  >
+                    <b>Passed Items</b>
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    color="initial"
+                    align="left"
+                    style={{ marginBottom: "24px" }}
+                  >
+                    <b>Action: </b>
+                    <span
+                      style={{
+                        backgroundColor: "green",
+                        padding: "8px",
+                        color: "white",
+                      }}
+                    >
+                      None
+                    </span>
+                  </Typography>
+                </Grid>
+
+                {hostscan && hostscan.pass.length > 0 ? (
+                  <Grid item md={12} xs={12} sm={12}>
+                    <TableContainer component={Paper}>
+                      <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                          <TableRow>
+                            <TableCell align="left">
+                              <b>ID</b>
+                            </TableCell>
+                            <TableCell>
+                              <b>Description</b>
+                            </TableCell>
+
+                            <TableCell></TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {hostscan.pass.map((scan) => (
+                            <TableRow key={scan.scan_id}>
+                              <TableCell align="left">{scan.id}</TableCell>
+                              <TableCell align="left">{scan.desc}</TableCell>
+
+                              <TableCell align="left"></TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </Grid>
+                ) : (
+                  <Grid item md={12} xs={12} sm={12}>
+                    <Typography variant="body1" color="initial">
+                      No Data Available
+                    </Typography>
+                  </Grid>
+                )}
+              </Grid>
+            </Container>
+          </div>
         </>
       )}
     </>

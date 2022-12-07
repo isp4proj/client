@@ -138,7 +138,7 @@ export default function Scans() {
           <Container maxWidth="lg">
             <Typography
               variant="h4"
-              color="initial"
+              color="white"
               align="left"
               style={{ marginTop: "48px" }}
             >
@@ -147,7 +147,7 @@ export default function Scans() {
 
             <Typography
               variant="body1"
-              color="initial"
+              color="white"
               align="left"
               style={{ marginTop: "12px" }}
             >
@@ -205,6 +205,7 @@ export default function Scans() {
                                   variant="contained"
                                   color="primary"
                                   disableElevation
+                                  style={{ backgroundColor: "#3ec7c7", color: "#fff" }}
                                 >
                                   View scan
                                 </Button>

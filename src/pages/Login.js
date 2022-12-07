@@ -128,8 +128,10 @@ export default function Login(props) {
               style={{
                 padding: "48px",
                 borderRadius: "8px",
-                backgroundColor: "white",
-                boxShadow: `0px 10px 38px rgba(221, 230, 237, 1)`,
+                backgroundColor: "rgba(255, 255, 255, 1)",
+                boxShadow: `0px 10px 38px rgba(221, 230, 237, 0.5)`,
+                position: "relative",
+                top: "-32px",
               }}
             >
               <form onSubmit={handleSubmit(verify)}>
@@ -225,7 +227,7 @@ export default function Login(props) {
                       fullWidth
                       size="large"
                       variant="contained"
-                      color="primary"
+                      style={{backgroundColor: "#3ec7c7", color: "#fff"}}
                     >
                       <b>Login</b>
                     </Button>

@@ -9,6 +9,7 @@
 }
 
 @media print {
+
   html,
   body {
     height: initial !important;
@@ -41,6 +42,7 @@
   font-family: "AirbnbCerealBlack";
   src: url(./assets/fonts/AirbnbCerealBlack.ttf);
 }
+
 @font-face {
   font-family: "AirbnbCerealBold";
   src: url(./assets/fonts/AirbnbCerealBold.ttf);
@@ -68,4 +70,19 @@
 
 .MuiChip-label {
   font-family: "AirbnbCerealLight";
+}
+
+.nav-link-hover {
+  padding: 0 20px;
+}
+
+.nav-link-hover:hover {
+  background-color: #3ec7c7;
+  border-radius: 50px;
+  padding: 0 20px;
+}
+
+.drawer-item:hover {
+  background-color: #3ec7c7;
+  /* color: black; */
 }
