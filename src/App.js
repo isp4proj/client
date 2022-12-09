@@ -15,6 +15,8 @@ import AuthRoute from "./util/AuthRoute";
 import Provider from "./util/Provider";
 
 import background from "./assets/background.mp4";
+import AboutUs from "./pages/AboutUs";
+import HowItWork from "./pages/HowItWork";
 
 const theme1 = createTheme({
   typography: {
@@ -94,6 +96,9 @@ function App() {
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+              <Route path="/about" component={AboutUs} />
+              <Route path="/how" component={HowItWork} />
+
               <AuthRoute exact path="/" component={Scans} />
               <AuthRoute path="/scan/:id" component={Scan} />
             </Switch>

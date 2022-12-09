@@ -12,16 +12,15 @@ import icon from "../assets/images/icon.png";
 import logo from "../assets/images/logo.png";
 import sidelogo from "../assets/images/side-logo.png";
 
-
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InfoIcon from '@mui/icons-material/Info';
-import ComputerIcon from '@mui/icons-material/Computer';
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InfoIcon from "@mui/icons-material/Info";
+import ComputerIcon from "@mui/icons-material/Computer";
 
 export default function Bar(props) {
   const { currentUser } = useContext(Context);
@@ -34,7 +33,10 @@ export default function Bar(props) {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
@@ -44,39 +46,64 @@ export default function Bar(props) {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250,
-        backgroundColor: '#000',
-        color: '#fff',
-        height: '85vh',
-        paddingTop: '100px',
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+        backgroundColor: "#000",
+        color: "#fff",
+        height: "85vh",
+        paddingTop: "100px",
       }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['About Us', 'How it works'].map((text, index) => (
+        {[
+          {
+            Name: "About Us",
+            Link: "/about",
+          },
+          {
+            Name: "How it works",
+            Link: "/how",
+          },
+        ].map((text, index) => (
           <ListItem key={text} disablePadding className="drawer-item">
             <ListItemButton>
-              <ListItemIcon style={{ paddingLeft: '10px' }}>
-                {index % 2 === 0 ? <InfoIcon style={{ color: "white" }} /> : <ComputerIcon style={{ color: "white" }} />}
+              <ListItemIcon style={{ paddingLeft: "10px" }}>
+                {index % 2 === 0 ? (
+                  <InfoIcon style={{ color: "white" }} />
+                ) : (
+                  <ComputerIcon style={{ color: "white" }} />
+                )}
               </ListItemIcon>
-              <ListItemText primary={text} primaryTypographyProps={{ fontSize: '20px' }} />
+              <NavLink
+                to={text.Link}
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                <ListItemText
+                  primary={text.Name}
+                  primaryTypographyProps={{ fontSize: "20px" }}
+                />
+              </NavLink>
             </ListItemButton>
           </ListItem>
         ))}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <img src={sidelogo} alt="logo"
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={sidelogo}
+            alt="logo"
             style={{
               // height: '40px',
-              width: '80%',
-              marginTop: '200px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
+              width: "80%",
+              marginTop: "200px",
+              marginLeft: "auto",
+              marginRight: "auto",
             }}
           />
         </div>
@@ -100,24 +127,24 @@ export default function Bar(props) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <div>
-        {['left', 'right', 'top', 'bottom'].map((anchor) => (
+        {["left", "right", "top", "bottom"].map((anchor) => (
           <React.Fragment key={anchor}>
             {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
             <Drawer
               anchor={anchor}
               open={state[anchor]}
               onClose={toggleDrawer(anchor, false)}
-            // sx={{
-            //   backgroundColor: '#000',
-            //   color: '#fff'
-            // }}
+              // sx={{
+              //   backgroundColor: '#000',
+              //   color: '#fff'
+              // }}
             >
               {list(anchor)}
             </Drawer>
           </React.Fragment>
         ))}
       </div>
-      <AppBar position="static" style={{ background: '#000000' }}>
+      <AppBar position="static" style={{ background: "#000000" }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -126,12 +153,17 @@ export default function Bar(props) {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon onClick={toggleDrawer('left', true)} />
+            <MenuIcon onClick={toggleDrawer("left", true)} />
           </IconButton>
-          <Typography variant="h4" component="div" sx={{ flexGrow: 1 }} style={{ paddingLeft: '335px' }}>
+          <Typography
+            variant="h4"
+            component="div"
+            sx={{ flexGrow: 1 }}
+            style={{ paddingLeft: "335px" }}
+          >
             {/* <b>DockSec V1.0</b> */}
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <img src={logo} alt="logo" style={{ height: '40px' }} />
+              <img src={logo} alt="logo" style={{ height: "40px" }} />
             </Link>
           </Typography>
 
@@ -148,7 +180,7 @@ export default function Bar(props) {
           </NavLink>
 
           {currentUser ? (
-            <div className="nav-link-hover" style={{ padding: '6px' }}>
+            <div className="nav-link-hover" style={{ padding: "6px" }}>
               <Button
                 onClick={() => {
                   localStorage.removeItem("jwt-token");
