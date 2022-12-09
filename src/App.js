@@ -15,6 +15,8 @@ import AuthRoute from "./util/AuthRoute";
 import Provider from "./util/Provider";
 
 import background from "./assets/background.mp4";
+import AboutUs from "./pages/AboutUs";
+import HowItWork from "./pages/HowItWork";
 
 const theme1 = createTheme({
   typography: {
@@ -69,7 +71,11 @@ let theme = responsiveFontSizes(theme1);
 function App() {
   return (
     <div className="App">
-      <video autoPlay muted loop id="myVideo"
+      <video
+        autoPlay
+        muted
+        loop
+        id="myVideo"
         style={{
           position: "absolute",
           zIndex: "-100",
@@ -77,10 +83,11 @@ function App() {
           left: "0",
           top: "0px",
           // height: 'calc(100% - 50px)',
-          height: '100%',
+          height: "100%",
           objectFit: "cover",
           // opacity: "0.5",
-        }}>
+        }}
+      >
         <source src={background} type="video/mp4" />
       </video>
       <ThemeProvider theme={theme}>
@@ -88,7 +95,10 @@ function App() {
           <BrowserRouter>
             <Switch>
               <Route path="/login" component={Login} />
-              <AuthRoute path="/register" component={Register} />
+              <Route path="/register" component={Register} />
+              <Route path="/about" component={AboutUs} />
+              <Route path="/how" component={HowItWork} />
+
               <AuthRoute exact path="/" component={Scans} />
               <AuthRoute path="/scan/:id" component={Scan} />
             </Switch>
